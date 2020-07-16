@@ -1,0 +1,8 @@
+<nav>
+    <ul>
+        <li><a [routerLink]="RoutePaths.sudoku.toUrl()"
+               [routerLinkActive]="'active'">Sudoku</a></li>
+    </ul>
+</nav>
+
+<router-outlet [routes]="Routes.all"></router-outlet>

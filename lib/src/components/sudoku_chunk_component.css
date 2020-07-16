@@ -1,0 +1,17 @@
+.grid-chunk {
+  display: inline-grid;
+  border: 2px solid #121212;
+  margin: 0 auto;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 3px;
+}
+
+.grid-chunk.complete {
+  border: 2px solid green;
+}
+
+.grid-chunk.incomplete {
+  border: 2px solid red;
+}
+

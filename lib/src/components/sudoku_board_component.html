@@ -1,0 +1,7 @@
+<sudoku-chunk *ngFor="let chunk of board.sudokuChunks.values"
+              [chunk]="chunk">
+</sudoku-chunk>
+
+<button (click)="checkComplete()">Submit</button>
+
+<label>{{info}}</label>

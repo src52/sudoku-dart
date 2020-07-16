@@ -1,0 +1,14 @@
+<div class="grid-square">
+    <div *ngIf="square.editable == false">
+        <label>{{square.value}}</label>
+    </div>
+
+    <div *ngIf="square.editable == true">
+        <input #box type="number"
+               oninput="this.value = this.value.slice(0, this.maxLength).replace('0', '')"
+               id="box"
+               maxLength="1"
+               autocomplete="off"
+               [(ngModel)]="square.value">
+    </div>
+</div>
