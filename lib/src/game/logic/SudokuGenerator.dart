@@ -23,8 +23,6 @@ class SudokuGenerator {
       _numbers[randRow][randCol] = null;
       numbersToRemove--;
     }
-
-    print('numbers: $_numbers');
   }
 
   /// The rotate method takes a row of Sudoku numbers and shifts them to be used

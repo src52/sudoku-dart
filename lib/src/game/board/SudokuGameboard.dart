@@ -7,7 +7,7 @@ import 'SudokuChunk.dart';
 class SudokuGameboard {
   final _chunkMap = <Pair, SudokuChunk>{};
 
-  SudokuGameboard.generator(var numbersToRemove) {
+  SudokuGameboard(var numbersToRemove) {
     var generator = SudokuGenerator(numbersToRemove);
     var unshuffledMap = <Pair, SudokuChunk>{};
 
@@ -30,12 +30,10 @@ class SudokuGameboard {
     var pairsOfChunks = columnPairList(gameboardCol);
     var pairsOfSquares = columnPairList(chunkCol);
 
-    final chunkList = pairsOfChunks.map((pair) =>
-    sudokuChunks[pair]).toList();
+    final chunkList = pairsOfChunks.map((pair) => sudokuChunks[pair]).toList();
 
     for(var chunk in chunkList) {
-      colValues.addAll(
-          pairsOfSquares.map((pair) =>
+      colValues.addAll(pairsOfSquares.map((pair) =>
           chunk.sudokuSquares[pair].value));
     }
     return colValues;
@@ -51,16 +49,15 @@ class SudokuGameboard {
     var pairsOfChunks = rowPairList(gameboardRow);
     var pairsOfSquares = rowPairList(chunkRow);
 
-    final chunkList = pairsOfChunks.map((pair) =>
-    sudokuChunks[pair]).toList();
+    final chunkList = pairsOfChunks.map((pair) => sudokuChunks[pair]).toList();
 
     for(var chunk in chunkList) {
-      rowValues.addAll(
-          pairsOfSquares.map((pair) =>
+      rowValues.addAll(pairsOfSquares.map((pair) =>
           chunk.sudokuSquares[pair].value));
     }
     return rowValues;
   }
+
   /// Given a column index, 1 - 9, create a List of Pairs that compose the given column.
   List<Pair> columnPairList(int index) {
     var pairs = <Pair>[];
@@ -89,8 +86,8 @@ class SudokuGameboard {
     return chunkData;
   }
 
-  ///Given a particular row/column index, 1 - 9, return the equivalent index
-  ///within the specific chunk.
+  /// Given a particular row/column index, 1 - 9, return the equivalent index of
+  /// where it's contained within the chunk.
   int getChunkIndex(int index) {
     var result = (index % 3) - 1;
     if(result == -1) {
@@ -99,7 +96,7 @@ class SudokuGameboard {
     return result;
   }
 
-  ///Given a particular row/column index, 1 - 9, return the row/column index
+  ///Given a particular row/column index, 1 - 9, return the equivalent index of
   ///where it's contained within the game board.
   int getEquivalentBoardIndex(int index) {
     var result = ((index / 3) - 1).ceil();

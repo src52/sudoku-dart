@@ -1,7 +1,8 @@
 import 'package:angular_router/angular_router.dart';
 
-import 'route_paths.dart';
 import 'package:sudoku/src/components/sudoku_board_component.template.dart' as sudoku_board_template;
+import 'route_paths.dart';
+
 class Routes {
   static final sudoku = RouteDefinition(
     routePath: RoutePaths.sudoku,
